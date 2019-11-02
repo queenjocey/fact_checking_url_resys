@@ -1,0 +1,53 @@
+ps -ef | grep generate | awk '{print $2}' | xargs kill -9
+
+1.python -u prepro.py
+
+2.python -u gen_sample.py 
+cate num: 20, site num: 6
+url feature done
+user feature done
+user url dict: 11576, url user dict: 4307
+check uid mapped success
+follow users: 11576, miss follower: 661, follow in users: 11576, miss follow in: 682
+url_neighb_urls: 4307
+user_neighb_users: 11576
+new cnn relation done
+
+
+3.python -u gen_data_for_ben.py 
+test case: 1157600
+valid case: 1157600
+train case: 311118 [0, 2226, 1]
+check test in train done
+check valid in train done
+train done: 241662
+
+
+random sample done: 311118
+cate random sample done: 311118
+
+#2.python -u gen_train_data.py  # no tfidf choose
+
+
+4.python -u gen_gcn_data.py
+all pos sample: 51853 51853
+user num: 11576 url num: 4732
+gen relation list success!
+check user url relation success, user url dict: 11576
+check url user relation success, url user dict: 4307
+start to gen user url weight
+user_url_matrix_list: 51853.0
+url_user_matrix_list: 51853.0
+user_url_freq_list: 77985.0
+user_post_url_list: 51853.0
+url_posted_user_list: 51853.0
+check user url relation success, user url dict: 11576
+check url user relation success, url user dict: 4307
+url_url_weight.json 4732
+url_url_weight.json torch.Size([4732, 4732]) tensor(289387, device='cuda:1') tensor(11787.8320, device='cuda:1') tensor(0.0407, device='cuda:1') pmi fix done
+user_user_weight.json 11576
+user_user_weight.json torch.Size([11576, 11576]) tensor(8899118, device='cuda:1') tensor(527335.3125, device='cuda:1') tensor(0.0593, device='cuda:1') pmi fix done
+check url url weight success
+check user user weight success
+
+
